@@ -1,10 +1,41 @@
 $default-font: "Segoe UI", sans-serif
 
-$accent: #542749
-$color: #542749
-$white: #fafafa
-$green: #66b045
+$blue: #004872
+$darkblue: #003c5f
+$lightblue: #005a8e
+$yellow: #dda722
+$orange: #ff9100
+$green: #0d5000
+$brightgreen: #77d418
+$accent: #feffdc
+$white: #e9ecef
 
 @mixin mt($time)
   transition: all $time ease
+
+  //mixin for @font-face
+@function str-replace($string, $search, $replace: "")
+  $index: str-index($string, $search)
+
+  @if $index
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace)
+  @return $string
+
+=font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg)
+  $src: null
+
+  $extmods: (eot: "?", svg: "#" + str-replace($name, " ", "_"))
+
+  $formats: (otf: "opentype", ttf: "truetype")
+
+  @each $ext in $exts
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext)
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext)
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma)
+
+  @font-face
+    font-family: quote($name)
+    font-style: $style
+    font-weight: $weight
+    src: $src
 

@@ -1,5 +1,284 @@
+@import "vars"
 @import "fonts"
 @import "libs"
-@import "vars"
 @import "settings"
 
+.tournaments
+  position: relative
+  margin-left: auto
+  margin-right: auto
+  padding: 0 3px
+  max-width: 320px
+  height: 100%
+  background: url("../img/bg.png") no-repeat center top
+  background-size: cover
+  h1
+    font-family: "KabelCTT Ultra", sans-serif
+    font-size: 24px
+    font-weight: 600
+    line-height: 1.8
+    color: $accent
+    text-align: center
+    margin: 0
+    img
+      margin-right: 4px
+      vertical-align: middle
+  .tabs
+    .nav-tabs
+      border-bottom: none
+      > li
+        width: 50%
+        text-align: center
+        margin-bottom: 0
+        > a
+          border: none
+          background-color: $darkblue
+          border-top-left-radius: 20px
+          border-top-right-radius: 20px
+          font-family: "KabelCTT Ultra", sans-serif
+          font-size: 17px
+          font-weight: 600
+          color: $accent
+          a:focus, a:hover
+            background-color: $lightblue
+        &.active
+          > a
+            background-color: $lightblue
+    .tab-content
+      .tab-pane
+        background-color: $darkblue
+        &.active
+          background-color: $lightblue
+      .top-panel
+        background-color: $lightblue
+      .league-descr
+        padding: 4px 0
+        &__content
+          margin: 0 4px
+          padding: 8px
+          background-color: $darkblue
+          box-sizing: border-box
+          border-radius: 8px
+        &__top
+          display: flex
+          position: relative
+          .descr__text
+            margin-left: 10px
+            display: inline-block
+            h2
+              font-family: "KabelCTT Ultra", sans-serif
+              font-size: 17px
+              font-weight: 600
+              margin: 0
+              color: #fff
+              line-height: .8
+            span
+              font-family: "Segoe UI Bold", sans-serif
+              font-size: 12px
+              color: $orange
+          .descr__rules__link
+            position: absolute
+            right: 3px
+            top: 0
+            a
+              display: flex
+              justify-content: center
+              align-items: center
+              text-decoration: none
+              width: 20px
+              height: 20px
+              border-radius: 50%
+              text-align: center
+              color: #fff
+              font-family: "KabelCTT Ultra", sans-serif
+              font-size: 13px
+              background: linear-gradient(to bottom, #3ad5f5, #0d74c2)
+              &:hover
+                background: radial-gradient(ellipse at center, #188ccf 0%,#207cca 83%,#3ccff0 89%)
+              &:focus, &:active
+                background: linear-gradient(to bottom, #0d74c2, #3ad5f5)
+        .prizes-list
+          display: flex
+          justify-content: space-between
+          margin-top: 8px
+          margin-bottom: 0
+          padding: 0
+          list-style-type: none
+          .prize-item
+            display: flex
+            align-items: center
+            justify-content: space-between
+            width: 32%
+            padding: 1px 0
+            border-radius: 8px
+            background-color: #001c2c
+            line-height: .7
+            .reward
+              font-family: "KabelCTT Medium", sans-serif
+              font-weight: 600
+              font-size: 12px
+              margin-right: 30%
+              display: flex
+              align-items: center
+              img
+                margin-right: 1px
+
+.league__bottom
+  display: flex
+  margin: 10px 0
+  padding: 5px 0
+  background-color: $green
+  color: #8eab89
+  line-height: .8
+  border-top: 1px solid darken($green, 5%)
+  border-bottom: 1px solid darken($green, 5%)
+  p
+    margin: 0
+    font-family: "Segoe UI Bold", sans-serif
+    font-size: 11px
+    img
+      position: relative
+      bottom: 2px
+  .sort
+    position: relative
+    bottom: 2px
+    margin: 0 20px
+
+.results
+  background-color: $blue
+  width: 100%
+  padding: 0 10px
+  margin: 0
+  border-top: 2px solid $darkblue
+  border-bottom: 2px solid $darkblue
+  &__item
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 7px 0
+    border-bottom: 1px solid $darkblue
+    +mt(.1s)
+    &:hover, &:focus
+      border: 2px solid #fff
+    &.premium
+      .user-info
+        position: relative
+        .user-name
+          .nickname
+            color: $yellow
+            font-family: "Segoe UI Bold", sans-serif
+            font-weight: 600
+        &::before
+          position: absolute
+          content: url("../img/icons/crown.png")
+          bottom: -3px
+          left: 17px
+  &_left
+    display: flex
+    align-items: center
+    .place
+      margin-right: 15px
+      width: 21px
+      text-align: center
+      font-family: "Segoe UI Semibold", sans-serif
+      font-size: 16px
+      color: fff
+    .user-info
+      vertical-align: middle
+      img
+        width: 35px
+      .user-name
+        position: relative
+        top: 4px
+        display: inline-block
+        vertical-align: middle
+        p
+          line-height: .8
+          font-size: 11px
+          color: $brightgreen
+          &.nickname
+            font-size: 13px
+            color: #fff
+  .user-points
+    font-size: 13px
+    img
+      position: relative
+      bottom: 2px
+
+.navigation
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 10px 90px
+  .page-number
+    font-family: "KabelCTT Medium", sans-serif
+    font-size: 20px
+    line-height: .8
+    position: relative
+    top: 3px
+
+.rules
+  position: absolute
+  display: block
+  top: 43px
+  left: 2px
+  border-top-right-radius: 20px
+  border-top-left-radius: 20px
+  height: 94.4%
+  width: 314px
+  padding: 0 15px 10px
+  background-color: $lightblue
+  h2
+    font-family: "KabelCTT Ultra", sans-serif
+    font-size: 22px
+    font-weight: 600
+    color: #fff
+  p
+    font-size: 16px
+  .rewards
+    margin: 25px 0 35px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    &__item
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
+      width: 90px
+      height: 90px
+      margin-bottom: 6px
+      border: 1px solid #003b58
+      border-radius: 15px
+      background-color: #004167
+      h4
+        margin: 5px 0 0
+        font-family: "Segoe UI Semibold", sans-serif
+        font-weight: 600
+        font-size: 13px
+      p
+        font-family: "KabelCTT Medium", sans-serif
+        font-weight: 600
+        font-size: 16px
+        line-height: .8
+        margin: 0 auto 4px
+        text-align: center
+        padding: 2px 0
+        width: 84px
+        border-radius: 15px
+        border: 1px solid #012c42
+        background-color: darken($darkblue, 5%)
+
+.btn-back
+  padding: 8px 75px
+  font-family: "KabelCTT Ultra", sans-serif
+  font-size: 21px
+  font-weight: 600
+  color: #fff
+  text-transform: uppercase
+  border-radius: 20px
+  border: 2px solid #fff
+  background: linear-gradient(to bottom, #42e2fb, #0a6dbe)
+  &:hover
+    text-decoration: none
+    color: #fff
